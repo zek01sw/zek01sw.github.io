@@ -3,10 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+    <title>ZEKSW Home</title>
+    <style>
+        /* --- Base Setup --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Light gray background for the bottom section */
+        }
+
+        /* --- Hero Section (Top) --- */
+        .hero {
+            /* Dark background simulating the space environment */
+            background-color: #0f111a;
+            background-image: linear-gradient(to bottom, #0f111a 0%, #1a1b26 80%, #2d182b 100%);
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* CSS Approximation of the Neon Text */
+        .neon-title {
+            font-size: 8rem;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+            
+            /* Gradient text effect (Cyan to Pink) */
+            background: linear-gradient(90deg, #00f3ff 0%, #ff00ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            
+            /* Outer glow */
+            filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.4)) 
+                    drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+        }
+
+        /* The glowing pink line */
+        .neon-line {
+            width: 60%;
+            max-width: 500px;
+            height: 6px;
+            background: linear-gradient(90deg, #00f3ff, #ff00ff);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff00ff, 0 0 20px #00f3ff;
+            margin-top: 1rem;
+        }
+
+        /* --- Content Section (Bottom) --- */
+        .content-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Individual Image Links --- */
+        .card {
+            display: block;
+            width: 320px;
+            height: 320px;
+            text-decoration: none;
+            border-radius: 4px;
+            overflow: hidden; /* Keeps image corners rounded */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #222; /* Placeholder color before images load */
+        }
+
+        /* Hover effect to make them pop up slightly */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Forces images to fill the square without stretching */
+            display: block;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .neon-title {
+                font-size: 4rem;
+            }
+            .card {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my first GitHub Pages website.</p>
+
+    <header class="hero">
+        <h1 class="neon-title">ZEKSW</h1>
+        <div class="neon-line"></div>
+    </header>
+
+    <main>
+        <div class="content-grid">
+            
+            <a href="/mark1615" class="card">
+                <img src="https://placehold.co/400x400/1a1a24/white?text=Gospel+Image" alt="Proclaim the Gospel">
+            </a>
+
+            <a href="/mylists" class="card">
+                <img src="https://placehold.co/400x400/2c2c34/white?text=MLists+Image" alt="MLists Logo">
+            </a>
+
+            <a href="/holyrosary" class="card">
+                <img src="https://placehold.co/400x400/4a3b2c/white?text=Rosary+Image" alt="Stained Glass Window">
+            </a>
+
+        </div>
+    </main>
+
 </body>
 </html>
