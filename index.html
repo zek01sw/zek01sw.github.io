@@ -20,15 +20,17 @@
         /* --- Hero Image Section (Top) --- */
         .hero-container {
             width: 100%;
-            background-color: #0f111a; /* Matches the dark edges of your image */
+            background-color: #0f111a; 
             display: flex;
             justify-content: center;
+            padding: 2rem 1rem; /* Adds a little breathing room around the banner */
         }
 
         .hero-container img {
             width: 100%;
-            max-width: 1200px; /* Prevents the image from getting too massive on huge monitors */
-            height: auto;
+            max-width: 800px; /* Reduced from 1200px to keep it tighter */
+            max-height: 35vh; /* Forces it to never take up more than 35% of your screen height */
+            object-fit: contain; /* Ensures the whole logo stays visible without getting cropped or stretched */
             display: block;
         }
 
