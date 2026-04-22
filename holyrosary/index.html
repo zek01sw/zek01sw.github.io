@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Rosary - ZEKSW</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Base Setup --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff; 
+        }
+
+        /* --- Main Image Section --- */
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #000; /* Dark background behind image if screen is very wide */
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 1000px; /* Keeps the image from getting too massive */
+            height: auto;
+            display: block;
+        }
+
+        /* --- Links Section (Bottom) --- */
+        .links-container {
+            background-color: #f4f5f5; /* Light gray background matching your screenshot */
+            width: 100%;
+            padding: 3rem 2rem;
+            border-top: 1px solid #e0e0e0; /* The faint divider line */
+        }
+
+        .links-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; /* Spacing between the links */
+        }
+
+        /* --- Link Styling --- */
+        .links-content a {
+            color: #007a87; /* The exact teal color */
+            text-decoration: underline;
+            text-underline-offset: 6px; /* Pushes the underline down slightly to look cleaner */
+            text-decoration-thickness: 2px;
+            align-self: flex-start; /* Keeps the clickable area tight to the text */
+        }
+
+        .links-content a:hover {
+            color: #005a63; /* Darkens slightly when you hover over it */
+        }
+
+        .link-privacy {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .link-history {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+        
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .link-privacy { font-size: 1.8rem; }
+            .link-history { font-size: 2rem; }
+            .links-container { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="../images/virgendeguadalupe1.png" alt="Stained Glass Window of Virgin Mary">
+    </div>
+
+    <div class="links-container">
+        <div class="links-content">
+            <a href="/privacy" class="link-privacy">Privacy Policy</a>
+            <a href="/history" class="link-history">History</a>
+        </div>
+    </div>
+
+</body>
+</html>
