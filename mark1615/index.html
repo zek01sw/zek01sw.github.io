@@ -64,7 +64,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4rem; /* This provides the spacing between your main sections */
+            gap: 4rem;
         }
 
         /* --- Channel Logo / Header --- */
@@ -113,7 +113,7 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
-            padding: 2.5rem 2rem;
+            padding: 2rem;
             text-decoration: none;
             color: var(--text-main);
             display: flex;
@@ -145,31 +145,28 @@
             box-shadow: inset 0 0 0 2px var(--youtube-red);
         }
 
-        /* CSS play button icon */
-        .play-icon {
-            width: 60px;
-            height: 40px;
-            background-color: var(--youtube-red);
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* --- Playlist Thumbnails --- */
+        .thumbnail-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Standard YouTube video ratio */
+            border-radius: 8px;
+            overflow: hidden;
             margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
+            background-color: #000; /* Placeholder color while image loads */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
-        .play-icon::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 8px 0 8px 14px;
-            border-color: transparent transparent transparent #ffffff;
-            margin-left: 4px;
+        .playlist-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
         }
 
-        .playlist-card:hover .play-icon {
-            transform: scale(1.1);
+        /* Subtle zoom effect on the thumbnail when hovering over the card */
+        .playlist-card:hover .playlist-thumbnail {
+            transform: scale(1.05);
         }
 
         .playlist-title {
@@ -188,7 +185,7 @@
         @media (max-width: 768px) {
             .container { padding: 1rem 1.5rem 4rem; gap: 3rem; }
             .section-title { font-size: 2rem; }
-            .playlist-card { padding: 2rem 1.5rem; }
+            .playlist-card { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -209,57 +206,40 @@
             
             <div class="playlist-grid">
                 
-                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UaKOry6wVVTqjDsrMmw3x2u&si=0ow61Bt21edfB44O" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                <a href="https://youtube.com/playlist?list=PLO0zkP7d97UaKOry6wVVTqjDsrMmw3x2u&si=0ow61Bt21edfB44O" target="_blank" class="playlist-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Genesis Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h2 class="playlist-title">The Book of Genesis</h2>
                     <p class="playlist-desc">Genesis: The Beginning - Epic Stories of Creation, Humanity & Faith
-Journey back to the very beginning with this playlist on the Book of Genesis! We'll explore the epic stories of Creation, Adam and Eve, Noah's Ark, the Tower of Babel, Abraham's covenant, and more. Discover the powerful narratives that have shaped our understanding of humanity, faith, and the origins of the world.</p>
+Journey back to the very beginning with this playlist on the Book of Genesis! We'll explore the epic stories of Creation, Adam and Eve, Noah's Ark, the Tower of Babel, Abraham's covenant, and more.</p>
                 </a>
 
                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UbILLuKq3AwopjF7ytlhpo5&si=KCLGAHzDVhX_LK4L" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Rosary Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">The Holy Rosary of the Blessed Virgin Mary</h3>
                     <p class="playlist-desc">The Holy Rosary of the Blessed Virgin Mary</p>
                 </a>
 
-
-                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UYJKrkyLlwISNfumyD0K2vG&si=Z3If43sDs3TF8WSB" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                <a href="https://youtube.com/playlist?list=PLO0zkP7d97UYJKrkyLlwISNfumyD0K2vG&si=Z3If43sDs3TF8WSB" target="_blank" class="playlist-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Advent Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">Advent</h3>
-                    <p class="playlist-desc">A Time for Hope
-
-Step away from the holiday hustle and enter into a space of quiet waiting and profound hope.
-
-Join us for a moment of reflection and worship this Advent season 
-
-The season of Advent is a time to remember how the world waited in darkness for the first coming of Jesus, and how we now wait for his glorious return. This video is an invitation to:
-
-    Reflect on the themes of Hope, Peace, Joy, and Love.
-
-    Prepare your heart for the true meaning of Christmas.
-
-    Find solace in the promise of the King who comes to deliver and restore.
-
-May this music be a source of encouragement as you anticipate the Light of the World.
-
-Help Us Share the Hope!
-
-    Like this video and Subscribe to our channel.</p>
+                    <p class="playlist-desc">A Time for Hope. Step away from the holiday hustle and enter into a space of quiet waiting and profound hope. Join us for a moment of reflection and worship this Advent season.</p>
                 </a>
-
 
                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UZwAh5gfUinxkOU8p-goR9e&si=Z5ekm81HqwksMT5w" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Christmas Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">Christmas</h3>
-                    <p class="playlist-desc">Step into the mystery of the Incarnation. As we celebrate the birth of our Savior, may this music help you meditate on the profound truth that "The Word became flesh and dwelt among us."
-
-What is the Catholic Christmas Season? While the world often packs up the decorations on December 26th, the Catholic celebration is just getting started! For us, Christmas isn't just a single day; it is a liturgical season of joy that begins at the Vigil Mass on Christmas Eve and continues until the Feast of the Baptism of the Lord (usually mid-January).
-
-This season is a time to feast, not fast. It includes the "Octave of Christmas" (eight days celebrated as one solemnity) and joyous feasts like the Holy Family and the Epiphany. It is a prolonged celebration of the Incarnation—God becoming man to save us.</p>
+                    <p class="playlist-desc">Step into the mystery of the Incarnation. As we celebrate the birth of our Savior, may this music help you meditate on the profound truth that "The Word became flesh and dwelt among us."</p>
                 </a>
 
-
-                </div>
+            </div>
         </section>
 
         <section class="playlist-section">
@@ -268,55 +248,38 @@ This season is a time to feast, not fast. It includes the "Octave of Christmas" 
             <div class="playlist-grid">
                 
                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UbuZuf4AgN46ASKvmNPeGRN&si=3oIXpNUduMBZqzte" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Génesis Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">El Libro del Genesis 1</h3>
-                    <p class="playlist-desc">Génesis: El comienzo: historias épicas de la creación, la humanidad y la fe
-¡Viaja al comienzo con esta lista de reproducción sobre el libro del Génesis! Exploraremos las historias épicas de la creación, Adán y Eva, el Arca de Noé, la Torre de Babel, el pacto de Abraham y más. Descubre las poderosas narrativas que han dado forma a nuestra comprensión de la humanidad, la fe y los orígenes del mundo.</p>
+                    <p class="playlist-desc">Génesis: El comienzo: historias épicas de la creación, la humanidad y la fe. ¡Viaja al comienzo con esta lista de reproducción sobre el libro del Génesis! Exploraremos las historias épicas de la creación y más.</p>
                 </a>
 
                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UacBMmOn90MOAbslOafEftW&si=UpuISGbZR9WR5GTE" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Rosario Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">El Santo Rosario de la Santísima Virgen María</h3>
                     <p class="playlist-desc">El Santo Rosario de la Santísima Virgen María</p>
                 </a>
 
-                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UZSh-CjoJzQC9-GrRXxzhT_&si=KNz_qA76AfMir4G_" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                <a href="https://youtube.com/playlist?list=PLO0zkP7d97UZSh-CjoJzQC9-GrRXxzhT_&si=KNz_qA76AfMir4G_" target="_blank" class="playlist-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Adviento Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">Adviento</h3>
-                    <p class="playlist-desc">Tiempo de Esperanza
-
-Aléjate del ajetreo y sumérgete en un espacio de tranquila espera y profunda esperanza.
-
-Acompáñanos en un momento de reflexión y adoración este Adviento.
-
-El Adviento es un tiempo para recordar cómo el mundo esperó en la oscuridad la primera venida de Jesús y cómo ahora esperamos su glorioso regreso. Este video es una invitación a:
-
-Reflexionar sobre los temas de Esperanza, Paz, Alegría y Amor.
-
-Preparar tu corazón para el verdadero significado de la Navidad.
-
-Encuentra consuelo en la promesa del Rey que viene a liberar y restaurar.
-
-Que esta música te inspire ánimo mientras esperas la Luz del Mundo.
-
-¡Ayúdanos a compartir la esperanza!
-
-¡Dale "me gusta" a este video y suscríbete a nuestro canal.</p>
+                    <p class="playlist-desc">Tiempo de Esperanza. Aléjate del ajetreo y sumérgete en un espacio de tranquila espera y profunda esperanza. Acompáñanos en un momento de reflexión y adoración este Adviento.</p>
                 </a>
-
 
                 <a href="https://youtube.com/playlist?list=PLO0zkP7d97UYM2MdrrxYNsIJAr11qlIYD&si=4akX-9n1Z6TTbEGY" target="_blank" class="playlist-card">
-                    <div class="play-icon"></div>
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/YOUR_IMAGE_HERE.jpg" alt="Navidad Thumbnail" class="playlist-thumbnail">
+                    </div>
                     <h3 class="playlist-title">Navidad</h3>
-                    <p class="playlist-desc">Sumérgete en el misterio de la Encarnación. Al celebrar el nacimiento de nuestro Salvador, que esta música te ayude a meditar en la profunda verdad de que «El Verbo se hizo carne y habitó entre nosotros».
-
-¿Qué es la Navidad católica? Mientras el mundo suele guardar las decoraciones el 26 de diciembre, ¡la celebración católica apenas comienza! Para nosotros, la Navidad no es solo un día; es un tiempo litúrgico de alegría que comienza con la Misa de Vigilia en Nochebuena y continúa hasta la Fiesta del Bautismo del Señor (generalmente a mediados de enero).
-
-Esta Navidad es un tiempo para festejar, no para ayunar. Incluye la «Octava de Navidad» (ocho días celebrados como una sola solemnidad) y festividades alegres como la Sagrada Familia y la Epifanía. Es una celebración prolongada de la Encarnación: Dios haciéndose hombre para salvarnos.</p>
+                    <p class="playlist-desc">Sumérgete en el misterio de la Encarnación. Al celebrar el nacimiento de nuestro Salvador, que esta música te ayude a meditar en la profunda verdad de que «El Verbo se hizo carne y habitó entre nosotros».</p>
                 </a>
 
-
-                </div>
+            </div>
         </section>
 
     </main>
