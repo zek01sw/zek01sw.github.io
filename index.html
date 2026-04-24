@@ -6,6 +6,13 @@
     <title>ZEKSW Home</title>
     <style>
         /* --- Base Setup --- */
+        :root {
+            --bg-color: #0a0c10;
+            --card-bg: #161822;
+            --glow-cyan: rgba(0, 243, 255, 0.5);
+            --glow-pink: rgba(255, 0, 255, 0.5);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -13,25 +20,30 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4; /* Light gray background for the bottom section */
+            /* Modern system font stack */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Hero Image Section (Top) --- */
         .hero-container {
             width: 100%;
-            background-color: #0f111a; 
             display: flex;
             justify-content: center;
-            padding: 2rem 1rem; /* Adds a little breathing room around the banner */
+            padding: 3rem 1.5rem 1rem;
         }
 
         .hero-container img {
             width: 100%;
-            max-width: 1200px; /* Reduced from 1200px to keep it tighter */
-            max-height: 35vh; /* Forces it to never take up more than 35% of your screen height */
-            object-fit: contain; /* Ensures the whole logo stays visible without getting cropped or stretched */
+            max-width: 1200px;
+            max-height: 45vh; /* Adjusted to give the banner a bit more vertical presence */
+            object-fit: contain;
             display: block;
+            /* Subtle ambient glow behind the banner */
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.8));
         }
 
         /* --- Content Section (Bottom) --- */
@@ -39,8 +51,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            padding: 4rem 2rem;
+            gap: 2.5rem;
+            padding: 4rem 2rem 6rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -51,16 +63,42 @@
             width: 320px;
             height: 320px;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 16px; /* Softer, modern corners */
             overflow: hidden; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #222; 
+            background-color: var(--card-bg);
+            /* Deep shadow for depth, subtle white border for glass effect */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            
+            /* Smooth physics-based transition */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        /* The Neon Glow Overlay (Invisible until hover) */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 16px;
+            box-shadow: inset 0 0 0 2px transparent;
+            transition: box-shadow 0.3s ease;
+            pointer-events: none;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.8);
+            border-color: transparent;
+        }
+
+        /* Apply a cyan glow to the first and third cards, pink to the middle */
+        .card:nth-child(odd):hover::after {
+            box-shadow: inset 0 0 0 2px var(--glow-cyan);
+        }
+        
+        .card:nth-child(even):hover::after {
+            box-shadow: inset 0 0 0 2px var(--glow-pink);
         }
 
         .card img {
@@ -68,13 +106,26 @@
             height: 100%;
             object-fit: cover; 
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        /* Slight zoom on the image itself when hovering the card */
+        .card:hover img {
+            transform: scale(1.05);
         }
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
+            .hero-container {
+                padding: 2rem 1rem 0;
+            }
+            .content-grid {
+                padding: 3rem 1.5rem;
+                gap: 2rem;
+            }
             .card {
                 width: 100%;
-                max-width: 350px;
+                max-width: 380px;
                 height: auto;
                 aspect-ratio: 1 / 1;
             }
