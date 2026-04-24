@@ -64,14 +64,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4rem;
+            gap: 4rem; /* This provides the spacing between your main sections */
         }
 
         /* --- Channel Logo / Header --- */
         .header-image {
             width: 100%;
-            max-width: 500px; /* Keeps the square logo from getting too massive */
-            border-radius: 50%; /* Makes the logo circular if it isn't already */
+            max-width: 500px; 
+            border-radius: 50%; 
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 40px rgba(0, 243, 255, 0.2);
             border: 2px solid var(--border-subtle);
@@ -84,14 +84,21 @@
         }
 
         /* --- Playlist Grid Section --- */
+        .playlist-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
         .section-title {
             font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 0.5rem;
         }
 
         .playlist-grid {
@@ -118,7 +125,6 @@
             position: relative;
         }
 
-        /* Invisible glow border that reveals on hover (YouTube Red) */
         .playlist-card::after {
             content: '';
             position: absolute;
@@ -195,35 +201,48 @@
     <main class="container">
         
         <div class="header-image">
-            <img src="../images/Mark1615GoandProclaim 10.jpg" alt="Mark 16:15 Logo">
+            <img src="../images/Mark16_15 Channel Logo V22.png" alt="Mark 16:15 Logo">
         </div>
 
-        <div style="width: 100%;">
-            <h1 class="section-title">Featured Playlists</h1>
+        <section class="playlist-section">
+            <h2 class="section-title">English Playlists</h2>
             
             <div class="playlist-grid">
                 
-                <a href="https://youtube.com/playlist?list=PLO0zkP7d97UaKOry6wVVTqjDsrMmw3x2u&si=0ow61Bt21edfB44O" target="_blank" class="playlist-card">
+                <a href="#" target="_blank" class="playlist-card">
                     <div class="play-icon"></div>
-                    <h2 class="playlist-title">The Book of Genesis</h2>
-                    <p class="playlist-desc">Genesis: The Beginning - Epic Stories of Creation, Humanity & Faith
-Journey back to the very beginning with this playlist on the Book of Genesis! We'll explore the epic stories of Creation, Adam and Eve, Noah's Ark, the Tower of Babel, Abraham's covenant, and more. Discover the powerful narratives that have shaped our understanding of humanity, faith, and the origins of the world.</p>
+                    <h3 class="playlist-title">English Playlist 1</h3>
+                    <p class="playlist-desc">Description of your first English video series.</p>
                 </a>
 
                 <a href="#" target="_blank" class="playlist-card">
                     <div class="play-icon"></div>
-                    <h2 class="playlist-title">Playlist Title Two</h2>
-                    <p class="playlist-desc">A brief description of what viewers will find in this specific collection of videos.</p>
+                    <h3 class="playlist-title">English Playlist 2</h3>
+                    <p class="playlist-desc">Description of your second English video series.</p>
+                </a>
+
+                </div>
+        </section>
+
+        <section class="playlist-section">
+            <h2 class="section-title">Listas de Reproducción</h2>
+            
+            <div class="playlist-grid">
+                
+                <a href="#" target="_blank" class="playlist-card">
+                    <div class="play-icon"></div>
+                    <h3 class="playlist-title">Lista en Español 1</h3>
+                    <p class="playlist-desc">Descripción de su primera serie de videos en español.</p>
                 </a>
 
                 <a href="#" target="_blank" class="playlist-card">
                     <div class="play-icon"></div>
-                    <h2 class="playlist-title">Playlist Title Three</h2>
-                    <p class="playlist-desc">A brief description of what viewers will find in this specific collection of videos.</p>
+                    <h3 class="playlist-title">Lista en Español 2</h3>
+                    <p class="playlist-desc">Descripción de su segunda serie de videos en español.</p>
                 </a>
 
-            </div>
-        </div>
+                </div>
+        </section>
 
     </main>
 
