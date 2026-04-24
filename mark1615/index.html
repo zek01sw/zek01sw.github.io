@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark 16:15 - Proclaim the Gospel</title>
+    
+    <style>
+        /* --- Base Setup --- */
+        :root {
+            --bg-color: #0a0c10;
+            --card-bg: #161822;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-cyan: #00f3ff;
+            --accent-magenta: #ff00ff;
+            --youtube-red: #ff0000;
+            --border-subtle: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        .nav-bar {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+            background-color: rgba(10, 12, 16, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-bar a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            color: var(--accent-magenta);
+        }
+
+        /* --- Main Content Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        /* --- Channel Logo / Header --- */
+        .header-image {
+            width: 100%;
+            max-width: 500px; /* Keeps the square logo from getting too massive */
+            border-radius: 50%; /* Makes the logo circular if it isn't already */
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 40px rgba(0, 243, 255, 0.2);
+            border: 2px solid var(--border-subtle);
+        }
+
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Playlist Grid Section --- */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* --- Playlist Cards --- */
+        .playlist-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        /* Invisible glow border that reveals on hover (YouTube Red) */
+        .playlist-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 12px;
+            box-shadow: inset 0 0 0 2px transparent;
+            transition: box-shadow 0.3s ease;
+            pointer-events: none;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-8px);
+            background-color: #1a1d29;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .playlist-card:hover::after {
+            box-shadow: inset 0 0 0 2px var(--youtube-red);
+        }
+
+        /* CSS play button icon */
+        .play-icon {
+            width: 60px;
+            height: 40px;
+            background-color: var(--youtube-red);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .play-icon::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 0 8px 14px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 4px;
+        }
+
+        .playlist-card:hover .play-icon {
+            transform: scale(1.1);
+        }
+
+        .playlist-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .playlist-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container { padding: 1rem 1.5rem 4rem; gap: 3rem; }
+            .section-title { font-size: 2rem; }
+            .playlist-card { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <a href="/">← Back to Home</a>
+    </nav>
+
+    <main class="container">
+        
+        <div class="header-image">
+            <img src="../images/Mark16_15 Channel Logo V22.png" alt="Mark 16:15 Logo">
+        </div>
+
+        <div style="width: 100%;">
+            <h1 class="section-title">Featured Playlists</h1>
+            
+            <div class="playlist-grid">
+                
+                <a href="#" target="_blank" class="playlist-card">
+                    <div class="play-icon"></div>
+                    <h2 class="playlist-title">Playlist Title One</h2>
+                    <p class="playlist-desc">A brief description of what viewers will find in this specific collection of videos.</p>
+                </a>
+
+                <a href="#" target="_blank" class="playlist-card">
+                    <div class="play-icon"></div>
+                    <h2 class="playlist-title">Playlist Title Two</h2>
+                    <p class="playlist-desc">A brief description of what viewers will find in this specific collection of videos.</p>
+                </a>
+
+                <a href="#" target="_blank" class="playlist-card">
+                    <div class="play-icon"></div>
+                    <h2 class="playlist-title">Playlist Title Three</h2>
+                    <p class="playlist-desc">A brief description of what viewers will find in this specific collection of videos.</p>
+                </a>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
