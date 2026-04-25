@@ -14,8 +14,11 @@
             --bg-color: #0a0c10;
             --card-bg: #161822;
             --text-main: #ffffff;
+            --text-muted: #94a3b8;
             --accent-teal: #00f3ff;
             --accent-hover: #ff00ff;
+            --youtube-red: #ff0000;
+            --border-subtle: rgba(255, 255, 255, 0.05);
         }
 
         * {
@@ -68,7 +71,7 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
         }
 
         .image-wrapper img {
@@ -93,19 +96,19 @@
 
         .action-card {
             background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 2rem 3rem;
             text-decoration: none;
             color: var(--text-main);
             text-align: center;
             min-width: 280px;
+            flex: 1;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
         }
 
-        /* Invisible glow border that reveals on hover */
         .action-card::after {
             content: '';
             position: absolute;
@@ -130,7 +133,6 @@
             box-shadow: inset 0 0 0 2px var(--accent-hover);
         }
 
-        /* Typography inside cards */
         .link-privacy {
             font-size: 1.8rem;
             font-weight: 700;
@@ -143,10 +145,110 @@
             font-weight: 400;
         }
 
+        /* --- Playlist Section --- */
+        .playlist-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-hover));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .playlist-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .playlist-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 12px;
+            box-shadow: inset 0 0 0 2px transparent;
+            transition: box-shadow 0.3s ease;
+            pointer-events: none;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-8px);
+            background-color: #1a1d29;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .playlist-card:hover::after {
+            box-shadow: inset 0 0 0 2px var(--youtube-red);
+        }
+
+        .thumbnail-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background-color: #000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .playlist-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .playlist-card:hover .playlist-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .playlist-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .playlist-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
         /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
             .container { padding: 0 1.5rem 3rem; gap: 2rem; }
-            .action-card { width: 100%; padding: 1.5rem; min-width: 100%; }
+            .action-card { padding: 1.5rem; min-width: 100%; }
+            .section-title { font-size: 2rem; }
+            .playlist-card { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -169,6 +271,31 @@
                 <div class="link-history">History</div>
             </a>
         </div>
+
+        <section class="playlist-section">
+            <h2 class="section-title">Video Playlists</h2>
+            
+            <div class="playlist-grid">
+                
+                <a href="https://youtube.com/playlist?list=PLO0zkP7d97UbILLuKq3AwopjF7ytlhpo5&si=KCLGAHzDVhX_LK4L" target="_blank" class="playlist-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/The First Glorious Mystery The Resurrection.png" alt="Rosary Thumbnail" class="playlist-thumbnail">
+                    </div>
+                    <h3 class="playlist-title">The Holy Rosary of the Blessed Virgin Mary</h3>
+                    <p class="playlist-desc">The Holy Rosary of the Blessed Virgin Mary</p>
+                </a>
+
+                <a href="https://youtube.com/playlist?list=PLO0zkP7d97UacBMmOn90MOAbslOafEftW&si=UpuISGbZR9WR5GTE" target="_blank" class="playlist-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="../images/Primer Misterio Glorioso La Resurrección.png" alt="Rosario Thumbnail" class="playlist-thumbnail">
+                    </div>
+                    <h3 class="playlist-title">El Santo Rosario de la Santísima Virgen María</h3>
+                    <p class="playlist-desc">El Santo Rosario de la Santísima Virgen María</p>
+                </a>
+
+            </div>
+        </section>
+
     </main>
 
 </body>
